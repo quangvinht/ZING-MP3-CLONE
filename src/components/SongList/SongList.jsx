@@ -20,7 +20,7 @@ function SongList({ song, chart, number, nTitle, onClick }) {
     const isSongPlay = useSelector((state) => state.allMusics.isSongPlay);
     let isDiskPlay = useSelector((state) => state.allMusics.isDiskPlay);
     const dispatch = useDispatch();
-
+    console.log(song);
     var notify = (notifyText, type) => {
         if (type === 'warn') {
             toast.warn(`🦄 ${notifyText}!!!`, {
@@ -183,7 +183,7 @@ function SongList({ song, chart, number, nTitle, onClick }) {
                         }}
                         className={cx('song-detail', 'hoverPointer', ['w-1/4', 'text-xs', 'text-slate-500'])}
                     >
-                        {song.album.title}
+                        {song.title}
                     </div>
                 )}
 
