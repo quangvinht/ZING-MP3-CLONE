@@ -77,7 +77,15 @@ function Artists() {
                         stroke
                         className={cx('btn', 'lg:self-start', 'flex', 'items-center', 'self-center')}
                     >
-                        <FontAwesomeIcon icon={faPlay} className={cx('')} />
+                        <FontAwesomeIcon
+                            onClick={() => {
+                                dispatch(setPlayLists(dataSections[0].items.map((value) => value.encodeId)));
+                                dispatch(setCurrentIndex(0));
+                                dispatch(setCurrentSong(0));
+                            }}
+                            icon={faPlay}
+                            className={cx('')}
+                        />
                         <span className={cx('ml-1')}>PHÁT NHẠC</span>
                     </Button>
                 </div>
