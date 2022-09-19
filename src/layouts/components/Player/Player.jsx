@@ -10,6 +10,7 @@ import {
     setCurrentIndex,
     setCurrentSong,
     setSongPlay,
+    setSongInfor,
 } from '~/redux/actions/musicAction';
 
 import PropTypes from 'prop-types';
@@ -31,11 +32,15 @@ function Player({ className }) {
 
     let srcAudio = useSelector((state) => state.allMusics.srcAudio);
 
-    let currentSong = useSelector((state) => state.allMusics.currentSong);
     let isLoop = useSelector((state) => state.allMusics.isLoop);
 
-    let playLists = useSelector((state) => state.allMusics.playLists);
+    let playListsDetail = useSelector((state) => state.allMusics.playLists);
+    let playLists = playListsDetail.map((value) => value.encodeId);
+    let currentSong = useSelector((state) => state.allMusics.currentSong);
+
     let songInfor = useSelector((state) => state.allMusics.songInfor);
+
+    let songDetail = playListsDetail.find((value) => value.encodeId === currentSong);
 
     useEffect(() => {
         const getApiCategory = async () => {
@@ -92,6 +97,7 @@ function Player({ className }) {
                 // dispatch(setCurrentIndex(playLists.length - 1));
                 dispatch(setCurrentSong(currentIndex));
                 dispatch(setSongPlay(playLists[currentIndex]));
+
                 dispatch(setSrcAudio(''));
             } else {
                 dispatch(setCurrentIndex((currentIndex += 1)));
@@ -208,12 +214,14 @@ function Player({ className }) {
                         src={srcAudio[0]}
                         onPlay={() => {
                             handleOnPlay();
+                            dispatch(setSongInfor(songDetail));
                         }}
                         onPause={() => {
                             handleOnPause();
                         }}
                         onClickNext={() => {
                             handleOnclickNext();
+                            console.log(songDetail);
                         }}
                         onClickPrevious={() => {
                             handleOnclickPrevious();

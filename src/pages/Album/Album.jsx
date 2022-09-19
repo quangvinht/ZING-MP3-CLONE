@@ -80,7 +80,7 @@ function Album() {
                     <div
                         onClick={() => {
                             handleCircle();
-                            dispatch(setPlayLists(dataForList));
+                            dispatch(setPlayLists(playLists));
                             dispatch(setCurrentIndex(0));
                             dispatch(setCurrentSong(0));
                             dispatch(setSongInfor(dataForList[0]));
@@ -143,7 +143,7 @@ function Album() {
                             playLists.map((song, i) => (
                                 <SongList
                                     onClick={() => {
-                                        dispatch(setPlayLists(dataForList));
+                                        dispatch(setPlayLists(playLists));
                                         dispatch(setCurrentIndex(i));
                                         dispatch(setCurrentSong(i));
                                     }}

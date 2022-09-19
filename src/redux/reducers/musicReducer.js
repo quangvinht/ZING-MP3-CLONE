@@ -156,9 +156,10 @@ export const musicReducer = (state = initalState, { type, payload }) => {
                 playLists: [...payload],
             };
         case actionType.SET_CURRENT_SONG:
+            let playListID = state.playLists.map((playList) => playList.encodeId);
             return {
                 ...state,
-                currentSong: state.playLists[payload],
+                currentSong: playListID[payload],
             };
         case actionType.SET_CURRENT_INDEX:
             return {

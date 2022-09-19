@@ -70,7 +70,7 @@ function Artists() {
                     </span>
                     <Button
                         onClick={() => {
-                            dispatch(setPlayLists(dataSections[0].items.map((value) => value.encodeId)));
+                            dispatch(setPlayLists(dataSections[0].items));
                             dispatch(setCurrentIndex(0));
                             dispatch(setCurrentSong(0));
                         }}
@@ -79,7 +79,7 @@ function Artists() {
                     >
                         <FontAwesomeIcon
                             onClick={() => {
-                                dispatch(setPlayLists(dataSections[0].items.map((value) => value.encodeId)));
+                                dispatch(setPlayLists(dataSections[0].items));
                                 dispatch(setCurrentIndex(0));
                                 dispatch(setCurrentSong(0));
                             }}
@@ -122,11 +122,7 @@ function Artists() {
                                         ? section.items.map((item, i) => (
                                               <SongList
                                                   onClick={() => {
-                                                      dispatch(
-                                                          setPlayLists(
-                                                              dataSections[0].items.map((value) => value.encodeId),
-                                                          ),
-                                                      );
+                                                      dispatch(setPlayLists(dataSections[0].items));
                                                       dispatch(setCurrentIndex(i));
                                                       dispatch(setCurrentSong(i));
                                                   }}
@@ -136,11 +132,7 @@ function Artists() {
                                         : section.items.slice(0, 10).map((item, i) => (
                                               <SongList
                                                   onClick={() => {
-                                                      dispatch(
-                                                          setPlayLists(
-                                                              dataSections[0].items.map((value) => value.encodeId),
-                                                          ),
-                                                      );
+                                                      dispatch(setPlayLists(dataSections[0].items));
                                                       dispatch(setCurrentIndex(i));
                                                       dispatch(setCurrentSong(i));
                                                   }}

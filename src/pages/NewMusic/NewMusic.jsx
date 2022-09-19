@@ -39,7 +39,7 @@ function NewMusic() {
 
                 <FontAwesomeIcon
                     onClick={() => {
-                        dispatch(setPlayLists(data.map((value) => value.encodeId)));
+                        dispatch(setPlayLists(data));
                         dispatch(setCurrentIndex(0));
                         dispatch(setCurrentSong(0));
                         dispatch(setSongInfor(data[0]));
@@ -54,7 +54,7 @@ function NewMusic() {
                           return (
                               <SongList
                                   onClick={() => {
-                                      dispatch(setPlayLists(data.map((value) => value.encodeId)));
+                                      dispatch(setPlayLists(data));
                                       dispatch(setCurrentIndex(i));
                                       dispatch(setCurrentSong(i));
                                   }}
@@ -69,7 +69,7 @@ function NewMusic() {
                           return (
                               <SongList
                                   onClick={() => {
-                                      dispatch(setPlayLists(data.map((value) => value.encodeId)));
+                                      dispatch(setPlayLists(data));
                                       dispatch(setCurrentIndex(i));
                                       dispatch(setCurrentSong(i));
                                   }}

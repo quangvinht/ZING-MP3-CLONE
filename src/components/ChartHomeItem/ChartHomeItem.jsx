@@ -14,7 +14,7 @@ function ChartHomeItem({ data }) {
                 return (
                     <SongList
                         onClick={() => {
-                            dispatch(setPlayLists(data.map((song) => song.encodeId)));
+                            dispatch(setPlayLists(data));
                             dispatch(setCurrentIndex(i));
                             dispatch(setCurrentSong(i));
                         }}

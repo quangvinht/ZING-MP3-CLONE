@@ -24,13 +24,7 @@ function WeeklyChartItem({ area, region }) {
                     icon={faPlay}
                     onClick={() => {
                         console.log(area);
-                        dispatch(
-                            setPlayLists(
-                                area.items.map((item) => {
-                                    return item.encodeId;
-                                }),
-                            ),
-                        );
+                        dispatch(setPlayLists(area.items));
                         dispatch(setCurrentIndex(0));
                         dispatch(setSongInfor(area.items[0]));
 
@@ -43,13 +37,7 @@ function WeeklyChartItem({ area, region }) {
                 return (
                     <SongList
                         onClick={() => {
-                            dispatch(
-                                setPlayLists(
-                                    area.items.map((item) => {
-                                        return item.encodeId;
-                                    }),
-                                ),
-                            );
+                            dispatch(setPlayLists(area.items));
                             dispatch(setCurrentIndex(i));
 
                             dispatch(setCurrentSong(i));
@@ -65,13 +53,7 @@ function WeeklyChartItem({ area, region }) {
             <Button
                 onClick={() => {
                     navigate(`/chart${area.link}`);
-                    dispatch(
-                        setPlayLists(
-                            area.items.map((item) => {
-                                return item.encodeId;
-                            }),
-                        ),
-                    );
+                    dispatch(setPlayLists(area.items));
                     dispatch(setCurrentIndex(0));
                     dispatch(setSongInfor(area.items[0]));
                     dispatch(setCurrentSong(0));

@@ -42,7 +42,7 @@ function Chart() {
                 <span className={cx('font-bold')}>#zingchart</span>
                 <FontAwesomeIcon
                     onClick={() => {
-                        dispatch(setPlayLists(RTChart.map((value) => value.encodeId)));
+                        dispatch(setPlayLists(RTChart));
                         dispatch(setSongInfor(RTChart[0]));
                         dispatch(setCurrentIndex(0));
                         dispatch(setCurrentSong(0));
@@ -57,7 +57,7 @@ function Chart() {
                           return (
                               <SongList
                                   onClick={() => {
-                                      dispatch(setPlayLists(RTChart.map((value) => value.encodeId)));
+                                      dispatch(setPlayLists(RTChart));
                                       dispatch(setCurrentIndex(i));
                                       dispatch(setCurrentSong(i));
                                   }}
@@ -72,7 +72,7 @@ function Chart() {
                           return (
                               <SongList
                                   onClick={() => {
-                                      dispatch(setPlayLists(RTChart.map((value) => value.encodeId)));
+                                      dispatch(setPlayLists(RTChart));
                                       dispatch(setCurrentIndex(i));
                                       dispatch(setCurrentSong(i));
                                   }}
