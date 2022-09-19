@@ -39,9 +39,10 @@
     -webkit-line-clamp: 1;
 }
 .play-icon {
-    top: 35%;
-    transform: translateX(-35%);
-    left: 50%;
+    top: 30%;
+    left: 70%;
+    transform: translateX(-70%);
+
     opacity: 0;
     transition: opacity 0.5s ease;
 }

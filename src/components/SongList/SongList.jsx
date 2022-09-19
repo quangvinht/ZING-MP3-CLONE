@@ -111,7 +111,7 @@ function SongList({ song, chart, number, nTitle, onClick }) {
                     <div styles={{ backgroundImage: `url(${false})` }}></div>
                     <div
                         className={cx('song-infor', [
-                            'truncate',
+                            '',
                             'flex',
                             'flex-col',
                             `${nTitle ? 'w-24' : 'w-36'}`,
