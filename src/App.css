@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.rhap_container {
+    background-color: transparent;
+    color: white;
+}
+.rhap_button-clear {
+    color: #63337b;
+}
+.rhap_repeat-button {
+    color: ;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.rhap_main-controls-button,
+.rhap_play-pause-button {
+    color: #63337b;
+}
+#rhap_current-time,
+.rhap_total-time {
+    color: white;
+}
+.rhap_progress-filled,
+.rhap_progress-indicator,
+.rhap_volume-filled,
+.rhap_volume-indicator {
+    background-color: #63337b;
+}
+.rhap_download-progress,
+.rhap_volume-bar {
+    background-color: gray;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@media (max-width: 640px) {
+    .rhap_repeat-button,
+    .rhap_volume-button,
+    .rhap_volume-bar-area,
+    .Player_icon-expand__mMNKT {
+        display: none;
+    }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+.swiper-button-prev {
+    background-image: url('./assets/images/arrowLeft.svg');
 
-.App-link {
-  color: #61dafb;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    padding: 20px;
+    border-radius: 50%;
 }
+.swiper-button-next {
+    background-image: url('./assets/images/arrowRight.svg');
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    padding: 20px;
+    border-radius: 50%;
+    background-position: center;
+}
+.swiper-button-next::after {
+    display: none;
 }
