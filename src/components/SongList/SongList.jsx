@@ -119,6 +119,7 @@ function SongList({ song, chart, number, nTitle, onClick }) {
                             'relative',
                             'ml-8',
                             'md:ml-5',
+                            'overflow-visible',
                         ])}
                     >
                         <span className={cx('song-title', 'font-bold', '', `${nTitle && 'truncate'}`)}>
