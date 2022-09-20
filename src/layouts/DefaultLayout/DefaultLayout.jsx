@@ -29,7 +29,7 @@ function DefaultLayout({ children }) {
                     ])}
                 >
                     <Header />
-                    <div className={cx('content', ['mb-56', 'lg:mx-24', 'md:mx-32', 'mx-8', 'mt-28'])}>{children}</div>
+                    <div className={cx('content', ['mb-56', 'lg:mx-24', 'md:mx-32', 'mx-8', 'mt-32'])}>{children}</div>
                 </div>
                 <Player className={['fixed']} />
             </div>

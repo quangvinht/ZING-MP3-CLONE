@@ -27,6 +27,8 @@ function Header() {
                 'left-0',
                 'lg:left-28',
                 'md:left-40',
+                'md:mx-0',
+                'mx-12',
             ])}
         >
             <FontAwesomeIcon

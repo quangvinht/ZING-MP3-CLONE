@@ -42,6 +42,11 @@ function Search() {
                 onChange={(e) => {
                     setSearchValue(e.target.value);
                 }}
+                onKeyDown={(e) => {
+                    if (e.keyCode === 13) {
+                        navigate(debounces.trim().length === 0 ? location.pathname : `/search/${debounces.trim()}`);
+                    }
+                }}
                 placeholder="Nhập tên bài hát, nghệ sĩ hoặc MV..."
                 className={cx('input-item', ['flex-1', 'py-3', 'pl-5', 'pr-5', 'text-white'])}
             />
@@ -54,7 +59,6 @@ function Search() {
             <button
                 onClick={() => {
                     navigate(debounces.trim().length === 0 ? location.pathname : `/search/${debounces.trim()}`);
-                    setSearchValue('');
                 }}
                 className={cx('button-search', ['py-3', 'md:px-5', 'px-3', 'flex', 'justify-center', 'items-center'])}
             >
