@@ -83,7 +83,7 @@ function Album() {
                             dispatch(setPlayLists(playLists));
                             dispatch(setCurrentIndex(0));
                             dispatch(setCurrentSong(0));
-                            dispatch(setSongInfor(dataForList[0]));
+                            dispatch(setSongInfor(playLists[0]));
 
                             notify();
                             if (isDiskPlay === true) {

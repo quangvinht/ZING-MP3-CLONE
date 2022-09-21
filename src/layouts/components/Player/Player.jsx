@@ -71,7 +71,11 @@ function Player({ className }) {
     };
 
     const handleOnPlay = () => {
-        notify('Mời bạn nghe');
+        if (srcAudio) {
+            notify('Mời bạn nghe');
+        } else {
+            notify('Bài này VIP');
+        }
         dispatch(setDiskPlay(true));
     };
     const handleOnPause = () => {
@@ -92,7 +96,7 @@ function Player({ className }) {
                 dispatch(setCurrentIndex((currentIndex += 1)));
                 dispatch(setCurrentSong(currentIndex));
                 dispatch(setSongPlay(playLists[currentIndex]));
-                notify(' Đang load ');
+                // notify(' Đang load ');
             }
         } else {
             if (currentIndex === playLists.length - 1) {
@@ -105,7 +109,7 @@ function Player({ className }) {
                 dispatch(setCurrentIndex((currentIndex += 1)));
                 dispatch(setCurrentSong(currentIndex));
                 dispatch(setSongPlay(playLists[currentIndex]));
-                notify(' Đang load ');
+                // notify(' Đang load ');
             }
         }
         if (isRandom) {
@@ -114,7 +118,13 @@ function Player({ className }) {
             dispatch(setCurrentSong(currentIndex));
             dispatch(setSongPlay(playLists[currentIndex]));
         }
+
         dispatch(setSongInfor(playListsDetail[currentIndex]));
+        if (srcAudio) {
+            notify(' Đang load ');
+        } else {
+            notify(' Bài này VIP ');
+        }
     };
     const handleOnclickPrevious = () => {
         if (currentIndex === 0) {
@@ -125,9 +135,14 @@ function Player({ className }) {
             dispatch(setCurrentIndex((currentIndex -= 1)));
             dispatch(setCurrentSong(currentIndex));
             dispatch(setSongPlay(playLists[currentIndex]));
-            notify(' Đang load ');
+            // notify(' Đang load ');
         }
         dispatch(setSongInfor(playListsDetail[currentIndex]));
+        if (srcAudio) {
+            notify(' Đang load ');
+        } else {
+            notify(' Bài này VIP ');
+        }
     };
     const handleOnEnd = () => {
         if (isLoop) {
@@ -144,6 +159,11 @@ function Player({ className }) {
             dispatch(setCurrentIndex(random));
             dispatch(setCurrentSong(currentIndex));
             dispatch(setSongPlay(playLists[currentIndex]));
+        }
+        if (srcAudio) {
+            notify(' Đang load ');
+        } else {
+            notify(' Bài này VIP ');
         }
     };
 
