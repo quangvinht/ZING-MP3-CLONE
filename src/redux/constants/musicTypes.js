@@ -11,4 +11,5 @@ export const actionType = {
     SET_IS_PLAY: 'SET_IS_PLAY',
     SET_IS_LOOP: 'SET_IS_LOOP',
     SET_SONG_INFOR: 'SET_SONG_INFOR',
+    SET_IS_RANDOM: 'SET_IS_RANDOM',
 };

@@ -130,6 +130,7 @@ const initalState = {
     notify: '',
     isDiskPlay: false,
     isLoop: false,
+    isRandom: false,
     songInfor: [],
 };
 
@@ -191,6 +192,11 @@ export const musicReducer = (state = initalState, { type, payload }) => {
             return {
                 ...state,
                 isLoop: payload,
+            };
+        case actionType.SET_IS_RANDOM:
+            return {
+                ...state,
+                isRandom: payload,
             };
         case actionType.SET_SONG_INFOR:
             return {

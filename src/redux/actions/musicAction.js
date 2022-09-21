@@ -73,6 +73,13 @@ export const setIsLoop = (data) => {
         payload: data,
     };
 };
+export const setIsRandom = (data) => {
+    return {
+        type: actionType.SET_IS_RANDOM,
+        payload: data,
+    };
+};
+
 export const setSongInfor = (data) => {
     return {
         type: actionType.SET_SONG_INFOR,

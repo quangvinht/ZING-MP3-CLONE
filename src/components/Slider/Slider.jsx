@@ -2,10 +2,10 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Slider.module.scss';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -16,6 +16,9 @@ import { Navigation, Autoplay } from 'swiper';
 const cx = classNames.bind(styles);
 
 function Slider({ dataSlide }) {
+    const navigate = useNavigate();
+    console.log(dataSlide);
+
     return (
         <div className={cx('slider', '')}>
             <Swiper
@@ -25,6 +28,7 @@ function Slider({ dataSlide }) {
                     disableOnInteraction: false,
                 }}
                 navigation={true}
+                pagination={{ clickable: true }}
                 modules={[Navigation, Autoplay]}
                 observer={true}
                 observeParents={true}
@@ -50,8 +54,14 @@ function Slider({ dataSlide }) {
             >
                 {dataSlide.map((item, i) => {
                     return (
-                        <div key={i} className={cx('')}>
-                            <SwiperSlide>
+                        <div key={i}>
+                            <SwiperSlide
+                                onClick={() => {
+                                    if (item.type === 4) {
+                                        navigate(`${item.link.replace('.html', '')}`);
+                                    }
+                                }}
+                            >
                                 <img
                                     src={item.banner}
                                     alt=""

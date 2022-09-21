@@ -11,13 +11,14 @@ import {
     setCurrentSong,
     setSongPlay,
     setSongInfor,
+    setIsRandom,
 } from '~/redux/actions/musicAction';
 
 import PropTypes from 'prop-types';
-import AudioPlayer from 'react-h5-audio-player';
+import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExpand, faRepeat } from '@fortawesome/free-solid-svg-icons';
+import { faExpand, faRepeat, faShuffle } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 
 const cx = classNames.bind(styles);
@@ -33,6 +34,7 @@ function Player({ className }) {
     let srcAudio = useSelector((state) => state.allMusics.srcAudio);
 
     let isLoop = useSelector((state) => state.allMusics.isLoop);
+    let isRandom = useSelector((state) => state.allMusics.isRandom);
 
     let playListsDetail = useSelector((state) => state.allMusics.playLists);
     let playLists = playListsDetail.map((value) => value.encodeId);
@@ -106,6 +108,13 @@ function Player({ className }) {
                 notify(' Đang load ');
             }
         }
+        if (isRandom) {
+            let random = Math.floor(Math.random() * playLists.length);
+            dispatch(setCurrentIndex(random));
+            dispatch(setCurrentSong(currentIndex));
+            dispatch(setSongPlay(playLists[currentIndex]));
+        }
+        dispatch(setSongInfor(playListsDetail[currentIndex]));
     };
     const handleOnclickPrevious = () => {
         if (currentIndex === 0) {
@@ -118,6 +127,7 @@ function Player({ className }) {
             dispatch(setSongPlay(playLists[currentIndex]));
             notify(' Đang load ');
         }
+        dispatch(setSongInfor(playListsDetail[currentIndex]));
     };
     const handleOnEnd = () => {
         if (isLoop) {
@@ -128,6 +138,12 @@ function Player({ className }) {
             }
         } else {
             dispatch(setSrcAudio(''));
+        }
+        if (isRandom) {
+            let random = Math.floor(Math.random() * playLists.length);
+            dispatch(setCurrentIndex(random));
+            dispatch(setCurrentSong(currentIndex));
+            dispatch(setSongPlay(playLists[currentIndex]));
         }
     };
 
@@ -212,16 +228,25 @@ function Player({ className }) {
                         autoPlayAfterSrcChange
                         layout="stacked-reverse"
                         src={srcAudio[0]}
+                        customAdditionalControls={[
+                            RHAP_UI.LOOP,
+                            <FontAwesomeIcon
+                                onClick={() => {
+                                    dispatch(setIsRandom(!isRandom));
+                                }}
+                                className={cx('random-btn', 'ml-8', `${isRandom && 'active-random'}`)}
+                                icon={faShuffle}
+                            />,
+                        ]}
                         onPlay={() => {
                             handleOnPlay();
-                            dispatch(setSongInfor(songDetail));
+                            // dispatch(setSongInfor(songDetail));
                         }}
                         onPause={() => {
                             handleOnPause();
                         }}
                         onClickNext={() => {
                             handleOnclickNext();
-                            console.log(songDetail);
                         }}
                         onClickPrevious={() => {
                             handleOnclickPrevious();
