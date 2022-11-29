@@ -142,6 +142,7 @@ function Album() {
                         {playLists &&
                             playLists.map((song, i) => (
                                 <SongList
+                                    key={i}
                                     onClick={() => {
                                         dispatch(setPlayLists(playLists));
                                         dispatch(setCurrentIndex(i));

@@ -17,7 +17,6 @@ const cx = classNames.bind(styles);
 
 function Slider({ dataSlide }) {
     const navigate = useNavigate();
-    console.log(dataSlide);
     return (
         <div className={cx('slider', '')}>
             <Swiper
